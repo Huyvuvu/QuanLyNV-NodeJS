@@ -1,0 +1,5 @@
+// Connections Exported from Studio 3T -- https://studio3t.com/
+// Exported on Nov 11, 2024 1:21:59 PM
+
+// niemtin
+mongodb://127.0.0.1:27017/?retryWrites=true&loadBalanced=false&serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&3t.uriVersion=3&3t.connection.name=niemtin&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true
