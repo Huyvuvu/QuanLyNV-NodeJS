@@ -1,0 +1,15 @@
+<% include Partials/header.ejs %>
+
+<!-- Page content-->
+<div class="container-fluid">
+  <h1 class="mt-4">Đăng nhập tài khoản</h1>
+
+  <form action="/dangnhap" method="post">
+    Tên tài khoản(Username) : <input type="text" name="txtUsername" class="form-control" /> <br />
+    Mật khẩu(Password) : <input type="password" name="txtPassword"  class="form-control"/> <br />
+    <input type="submit" value="Đăng nhập" class="btn btn-primary" />
+  </form>
+
+</div>
+
+<% include Partials/footer.ejs %>

@@ -1,0 +1,15 @@
+<% include Partials/header.ejs %>
+
+<!-- Page content-->
+<div class="container-fluid">
+
+  <h1 class="mt-4">Thêm nhân viên</h1>
+  <form action="/them" method="post" enctype="multipart/form-data">
+    Tên nv mới : <input type="text" name="txtTen" class="form-control" /> <br />
+    Tuổi nv mới : <input type="number" name="txtTuoi"  class="form-control"/> <br />
+    Hình nv mới : <input type="file" name="txtHinh"  class="form-control"/> <br />
+    <input type="submit" value="Thêm" class="btn btn-primary" />
+  </form>
+</div>
+
+<% include Partials/footer.ejs %>

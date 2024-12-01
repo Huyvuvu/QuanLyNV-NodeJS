@@ -1,0 +1,88 @@
+<%  include Partials/header.ejs %>
+
+<!-- Page content-->
+<div class="container-fluid">
+  <h1 class="mt-4">Xem DSNV</h1>
+  <table border="1" class="table table-striped">
+    <tr>
+      <th>Tên NV</th>
+      <th>Tuổi NV</th>
+      <th>Hình NV</th>
+      <th></th>
+    </tr>
+    <% for(i=0; i<dsnv.length; i++) { %>
+    <tr>
+      <td><%= dsnv[i].ten %></td>
+      <td><%= dsnv[i].tuoi %></td>
+      <td>
+          <% 
+            if(!dsnv[i].hinh)  {
+          %>
+             <img src="/img/employee.jpg"  width="100px">
+          <%
+            }
+            else{
+          %>
+              <img src="/img/<%= dsnv[i].hinh %>"  width="100px">
+          <% } %> 
+      </td>
+      <td>
+        <% if(typeof userId !== "undefined") { %>
+          <a class="btn btn-warning" href="/sua/<%= dsnv[i]._id %>">Sửa</a>
+          <a class="btn btn-danger" onclick="xacnhanxoa('<%= dsnv[i]._id %>')">Xóa</a>
+        <% } %>
+      </td>
+    </tr>
+    <% } %> 
+  </table>
+  
+
+    <div class="clearfix">
+        <% if (tranghientai > 1) { 
+            var page = parseInt(tranghientai) - 1; 
+        %>
+            <a href="/<%= page %>" class="btn btn-primary float-left">
+                &larr; Trang trước
+            </a>
+        <% } %> 
+
+        <% if (tranghientai < trangcuoicung) { 
+            var page = parseInt(tranghientai) + 1; 
+        %>
+            <a href="/<%= page %>" class="btn btn-primary float-right">
+                Trang sau &rarr;
+            </a>
+        <% } %>
+    </div>
+
+</div>
+
+
+
+<script>
+  function xacnhanxoa(id) {
+    Swal.fire({
+      title: "Bạn có chắc muốn xóa ?",
+      text: "Không thể phục hồi!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Vâng, xóa đi!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Deleted!",
+          text: "Nhân viên đã bị xóa.",
+          icon: "success"
+        }).then(() => {
+          window.location.href = "/xoa/" + id;
+        });
+      }
+    });
+  }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<%  include Partials/footer.ejs %>

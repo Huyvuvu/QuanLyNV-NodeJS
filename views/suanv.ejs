@@ -1,0 +1,36 @@
+<% include Partials/header.ejs %>
+
+<!-- Page content-->
+<div class="container-fluid">
+  <h1 class="mt-4">Sửa Nhân Viên</h1>
+
+  <form action="/sua" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="txtId" class="form-control" value="<%= nv._id %>" /> <br />
+
+    Tên nv đã có :
+    <input type="text" name="txtTen" class="form-control" value="<%= nv.ten  %>" /> <br />
+
+    Tuổi mới cho nv :
+    <input type="number" name="txtTuoi"  class="form-control" value="<%= nv.tuoi%>"/> <br />
+
+    <% 
+        if(!nv.hinh)  {
+    %>
+             <img src="/img/employee.jpg"  width="200px" class="rounded mb-3">
+    <%
+        }
+        else{
+    %>
+             <img src="/img/<%= nv.hinh %>"  width="200px" class="rounded mb-3">
+    <% 
+      }
+    %>  
+    
+    <br>
+    <input type="file" name="txtHinh"  class="form-control"/> <br />
+
+    <input type="submit" value="Sửa" class="btn btn-warning" />
+  </form>
+</div>
+
+<% include Partials/footer.ejs %>

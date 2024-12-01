@@ -1,0 +1,14 @@
+<% include Partials/header.ejs %>
+
+<!-- Page content-->
+<div class="container-fluid">
+  <h1 class="mt-4">Tìm nhân viên</h1>
+  <form action="/tim" method="post">
+    Tên nv muốn tìm : 
+    <input type="text" name="txtTen" class="form-control" /> <br />
+    
+    <input type="submit" value="Tìm" class="btn btn-danger"/>
+  </form>
+</div>
+
+<% include Partials/footer.ejs %>
